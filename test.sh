@@ -27,11 +27,26 @@ pkg upgrade
 
 
 # Install required packages
-pkg install -y git wget curl nano openssh tmux zsh file which
+pkg install -y git wget curl nano openssh tmux zsh file which oh-my-posh
 
 chsh -s zsh
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
+exec zsh <<'EOF'
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# Add plugins to .zshrc
+
+EOF
+sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-history-substring-search zsh-autosuggestions)/' ~/.zshrc
+
 # sh -c "$(curl -fsSL n.t00.uk)"
+
+
+curl -L -o ~/.termux/font.ttf "https://raw.githubusercontent.com/romkatv/dotfiles-public/refs/heads/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf"
+
+termux-reload-settings
+exec zsh -l
