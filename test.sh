@@ -46,7 +46,7 @@ curl -L -o ~/.termux/font.ttf "https://raw.githubusercontent.com/romkatv/dotfile
 
 # eval "$(oh-my-posh init zsh --config )"
 
-echo -e '\neval "$(oh-my-posh init zsh --config $PREFIX/share/oh-my-posh/themes/hul10.omp.json)"' >> $HOME/.zshrc
+echo '\neval "$(oh-my-posh init zsh --config $PREFIX/share/oh-my-posh/themes/hul10.omp.json)"' >> $HOME/.zshrc
 
 
 termux-reload-settings
