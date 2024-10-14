@@ -31,5 +31,7 @@ pkg install -y git wget curl nano openssh tmux zsh file which
 
 chsh -s zsh
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 # sh -c "$(curl -fsSL n.t00.uk)"
