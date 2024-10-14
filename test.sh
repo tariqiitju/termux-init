@@ -27,7 +27,7 @@ pkg upgrade
 
 
 # Install required packages
-pkg install -y git wget curl nano openssh tmux zsh
+pkg install -y git wget curl nano openssh tmux zsh file which
 
 chsh -s $(which zsh)
 
