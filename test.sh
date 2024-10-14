@@ -27,7 +27,9 @@ pkg upgrade
 
 
 # Install required packages
-pkg install -y git wget curl nano openssh, tmux, zsh
+pkg install -y git wget curl nano openssh tmux zsh
 
-chsh zsh
+chsh -s $(which zsh)
 
+
+# sh -c "$(curl -fsSL n.t00.uk)"
