@@ -44,5 +44,10 @@ sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-history-substri
 
 curl -L -o ~/.termux/font.ttf "https://raw.githubusercontent.com/romkatv/dotfiles-public/refs/heads/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf"
 
+# eval "$(oh-my-posh init zsh --config )"
+
+echo -e '\neval "$(oh-my-posh init zsh --config $PREFIX/share/oh-my-posh/themes/hul10.omp.json)"' >> $HOME/.zshrc
+
+
 termux-reload-settings
 exec zsh -l
