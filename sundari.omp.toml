@@ -1,0 +1,63 @@
+"$schema" = 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json'
+console_title_template = '{{.PWD}}_%_{{.Shell}}'
+version = 2
+
+[palette]
+os = '#ACB0BE'
+pink = '#F5BDE6'
+lavender = '#B7BDF8'
+blue = '#8AADF4'
+wight = '#FFFFFF'
+text = '#494D64'
+
+
+
+[[blocks]]
+alignment = 'left'
+type = 'prompt'
+
+[[blocks.segments]]
+background = 'p:blue'
+foreground = 'p:wight'
+# powerline_symbol = "\ue0b4"
+# leading_diamond = "\ue0b6"
+# style = 'diamond'
+template = '{{.Icon}} '
+type = 'os'
+
+
+[[blocks]]
+alignment = 'left'
+type = 'prompt'
+newline = true
+
+
+
+[[blocks.segments]]
+foreground = '#352f8a'
+style = 'diamond'
+leading_diamond = "<#5c4903>\ue285 </>"
+trailing_diamond  = ""
+template = "\ue5ff {{ .Path }}"
+type = 'path'
+
+[blocks.segments.properties]
+folder_icon = "\uf07b"
+folder_separator_icon = '/'
+home_icon = "<#352f8a>\uf015 </>"
+# style = 'agnoster_full'
+
+
+[[blocks.segments]]
+foreground = '#044f1e'
+style = 'plain'
+template = " \ue6b1 "
+type = 'status'
+foreground_templates = ['{{ if gt .Code 0 }}#ef5350{{ end }}']
+
+[blocks.segments.properties]
+always_enabled = true
+
+[transient_prompt]
+background = 'transparent'
+template = "{{ if ne .Code 0 }}<#ef5350>\uf467</>{{ else }}<#0ecc0e>\uebb1</>{{ end }} "

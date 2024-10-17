@@ -1,0 +1,12 @@
+
+3+4+10+10
+[os_symbol][shell_symbol][trancated username][hostname][git]   <---> [runtime (6)][m-XX%][pp/qq][DDD,Mon,dd,yy HH:MM AM]
+[trancated directory] -- trancate from back
+
+
+transient --
+
+nua
+
+
+half-life.omp.json

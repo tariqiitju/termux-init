@@ -47,7 +47,8 @@ curl -L -o ~/.termux/font.ttf "https://raw.githubusercontent.com/romkatv/dotfile
 # eval "$(oh-my-posh init zsh --config )"
 
 echo '\neval "$(oh-my-posh init zsh --config $PREFIX/share/oh-my-posh/themes/hul10.omp.json)"' >> $HOME/.zshrc
-
+echo "bindkey '^[[1;2A' history-substring-search-up" >> $HOME/.zshrc
+echo "bindkey '^[[1;2B' history-substring-search-down" >> $HOME/.zshrc
 
 termux-reload-settings
 exec zsh -l

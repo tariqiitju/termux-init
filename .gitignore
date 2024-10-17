@@ -1,1 +1,4 @@
 # ignore unnesesry test file
+.zsh_history
+
+dmp/
