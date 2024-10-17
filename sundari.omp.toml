@@ -9,6 +9,11 @@ lavender = '#B7BDF8'
 blue = '#8AADF4'
 wight = '#FFFFFF'
 text = '#494D64'
+dark_bk = '#18161a'
+yellow_f = '#ab9127'
+red = '#ef5350'
+path_f = '#16012e'
+light_bk = '#65656e'
 
 
 
@@ -17,26 +22,77 @@ alignment = 'left'
 type = 'prompt'
 
 [[blocks.segments]]
-background = '#0f0d03'
-foreground = '#ab9127'
+background = 'p:dark_bk'
+foreground = 'p:yellow_f'
 powerline_symbol = "\ue0b4"
 style = 'plain'
 template = '{{.Icon}} '
 type = 'os'
 [[blocks.segments]]
-background = '#0f0d03'
-foreground = '#ab9127'
+background = 'p:dark_bk'
+foreground = 'p:yellow_f'
 style = 'plain'
 template = "\uf120 {{ .Name }} "
 type = 'shell'
 [[blocks.segments]]
-background = '#0f0d03'
-foreground = '#ab9127'
+background = 'p:dark_bk'
+foreground = 'p:yellow_f'
 powerline_symbol = "\ue0b4"
 style = 'plain'
-template = "\uf2bd {{ .UserName }}@{{ .HostName }}"
+template = "{{ if .SSHSession }}\ueb39{{ else if .WSL }}\uf1114{{else if .Root}}\uf0e7{{ else }}\uf2bd{{ end }} {{ .UserName }}@{{ .HostName }}"
+foreground_templates = ['{{ if .Root }}p:red{{ end }}']
 type = 'session'
+[blocks.segments.properties]
+display_host = true
 
+
+[[blocks.segments]]
+foreground = 'p:yellow_f'
+background = 'p:dark_bk'
+style = 'plain'
+template = " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} "
+type = 'git'
+
+[blocks.segments.properties]
+branch_icon = "\ue725 "
+fetch_stash_count = true
+fetch_status = true
+fetch_upstream_icon = true
+fetch_worktree_count = true
+
+
+[[blocks]]
+alignment = 'right'
+type = 'prompt'
+
+[[blocks.segments]]
+foreground = '#a9ffb4'
+style = 'plain'
+type = 'text'
+
+# [[blocks.segments]]
+# foreground = '#a9ffb4'
+# style = 'diamond'
+# template = ' {{ .FormattedMs }}s <#ffffff></>'
+# type = 'executiontime'
+
+# [blocks.segments.properties]
+# style = 'dallas'
+# threshold = 0
+
+[[blocks.segments]]
+type = "java"
+style = "powerline"
+# powerline_symbol = "\ue0b0"
+# foreground = "#ffffff"
+# background = "#4063D8"
+template = "\ue256 {{ if .Error }}{{ .Error }}{{ else }}{{ .Major }}{{ end }}"
+
+[[blocks.segments]]
+foreground = '#94ffa2'
+style = 'diamond'
+template = ' <#ffffff>MEM:</> {{ round .PhysicalPercentUsed .Precision }}% ({{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB)'
+type = 'sysinfo'
 
 [[blocks]]
 alignment = 'left'
@@ -46,26 +102,29 @@ newline = true
 
 
 [[blocks.segments]]
-foreground = '#352f8a'
+foreground = 'p:path_f'
+background = 'p:light_bk'
 style = 'diamond'
-leading_diamond = "<#5c4903>\ue285 </>"
+leading_diamond = "<#211700>\ue285 </>"
 trailing_diamond  = ""
 template = "\ue5ff {{ .Path }}"
 type = 'path'
 
 [blocks.segments.properties]
+max_depth = 8
 folder_icon = "\uf07b"
 folder_separator_icon = '/'
-home_icon = "<#352f8a>\uf015 </>"
-# style = 'agnoster_full'
+home_icon = "<p:path_f>\uf015 </>"
+style = 'agnoster_short'
 
 
 [[blocks.segments]]
-foreground = '#044f1e'
+foreground = '#011a01'
+background = 'p:light_bk'
 style = 'plain'
-template = " \ue6b1_"
+template = " {{ if .Root }}\uf292{{ else }}𝝀{{ end }}_"
 type = 'status'
-foreground_templates = ['{{ if gt .Code 0 }}#ef5350{{ end }}']
+foreground_templates = ['{{ if gt .Code 0 }}#75020c{{ end }}']
 
 [blocks.segments.properties]
 always_enabled = true
