@@ -17,13 +17,25 @@ alignment = 'left'
 type = 'prompt'
 
 [[blocks.segments]]
-background = 'p:blue'
-foreground = 'p:wight'
-# powerline_symbol = "\ue0b4"
-# leading_diamond = "\ue0b6"
-# style = 'diamond'
+background = '#0f0d03'
+foreground = '#ab9127'
+powerline_symbol = "\ue0b4"
+style = 'plain'
 template = '{{.Icon}} '
 type = 'os'
+[[blocks.segments]]
+background = '#0f0d03'
+foreground = '#ab9127'
+style = 'plain'
+template = "\uf120 {{ .Name }} "
+type = 'shell'
+[[blocks.segments]]
+background = '#0f0d03'
+foreground = '#ab9127'
+powerline_symbol = "\ue0b4"
+style = 'plain'
+template = "\uf2bd {{ .UserName }}@{{ .HostName }}"
+type = 'session'
 
 
 [[blocks]]
@@ -51,7 +63,7 @@ home_icon = "<#352f8a>\uf015 </>"
 [[blocks.segments]]
 foreground = '#044f1e'
 style = 'plain'
-template = " \ue6b1 "
+template = " \ue6b1_"
 type = 'status'
 foreground_templates = ['{{ if gt .Code 0 }}#ef5350{{ end }}']
 
