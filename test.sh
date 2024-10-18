@@ -42,6 +42,7 @@ sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-history-substri
 # sh -c "$(curl -fsSL n.t00.uk)"
 
 
+# replace with cascadiacove : better support
 curl -L -o ~/.termux/font.ttf "https://raw.githubusercontent.com/romkatv/dotfiles-public/refs/heads/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf"
 
 # eval "$(oh-my-posh init zsh --config )"

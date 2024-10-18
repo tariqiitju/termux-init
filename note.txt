@@ -1,10 +1,11 @@
 
 3+4+10+10
-[os_symbol][shell_symbol][trancated username][hostname][git]   <---> [runtime (6)][python][java][m-XX%][pp/qq][DDD,Mon,dd,yy HH:MM AM]
+[os_symbol][shell_symbol][trancated username][hostname][git]   <---> [runtime (6)][python][java][pp/qq]
+[battery][shell level][DDD,Mon,dd,yy HH:MM AM]
 [trancated directory] -- trancate from back
 
 
-transient --
+keep the shell level somewhere
 
 nua
 
@@ -12,7 +13,7 @@ nua
 half-life.omp.json
 
 
-eval "$(/home/tariq/.local/bin/oh-my-posh init zsh --config /home/tariq/code/projects/termux-init/sundari.omp.toml)"
+eval "$(/home/tariq/.local/bin/oh-my-posh init zsh --config /home/tariq/code/experiment/termux-init/sundari.omp.toml)"
 
 
 second promts --> light background, dark foreground
