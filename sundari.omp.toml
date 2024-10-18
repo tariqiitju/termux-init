@@ -114,6 +114,7 @@ type = 'sysinfo'
 [[blocks.segments]]
 type = 'time'
 foreground = "#8e9091"
+min_width=80
 
 [blocks.segments.properties]
 time_format = "Mon Jan 2 2006 3:04PM"
