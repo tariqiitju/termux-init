@@ -3,17 +3,15 @@ console_title_template = '{{.PWD}}_%_{{.Shell}}'
 version = 2
 
 [palette]
-os = '#ACB0BE'
 pink = '#F5BDE6'
 lavender = '#B7BDF8'
 blue = '#8AADF4'
 wight = '#FFFFFF'
-text = '#494D64'
 dark_bk = '#18161a'
 yellow_f = '#ab9127'
 red = '#ef5350'
-path_f = '#16012e'
-light_bk = '#65656e'
+path_f = '#3f134f'
+light_bk = '#a6955d'
 black = '#0'
 light_green = '#0ecc0e'
 dark_green = '#069c31'
@@ -29,8 +27,9 @@ type = 'prompt'
 background = 'p:dark_bk'
 foreground = 'p:yellow_f'
 style = 'powerline'
-template = '{{.Icon}} '
+template = "{{if eq .Icon \"android\"}}\ue70e{{ else }}{{.Icon}}{{ end }} "
 type = 'os'
+
 [[blocks.segments]]
 background = 'p:dark_bk'
 foreground = 'p:yellow_f'
@@ -114,7 +113,7 @@ type = 'sysinfo'
 
 [[blocks.segments]]
 type = 'time'
-foreground = "#007ACC"
+foreground = "#8e9091"
 
 [blocks.segments.properties]
 time_format = "Mon Jan 2 2006 3:04PM"
@@ -157,16 +156,14 @@ background = 'p:light_bk'
 style = 'diamond'
 leading_diamond = "<#211700>\ue285 </>"
 trailing_diamond  = ""
-# template = "\ue5ff {{ .Path }}"
 template = "{{ .Path }}"
 type = 'path'
 
 [blocks.segments.properties]
-max_depth = 8
+max_width = 55
 folder_icon = "\uf07b"
-folder_separator_icon = '/'
-home_icon = "<p:path_f>\ueb06 </>"
-style = 'agnoster_short'
+home_icon = "\ueb06 "
+style = 'powerlevel'
 
 
 [[blocks.segments]]
@@ -181,6 +178,5 @@ foreground_templates = ['{{ if gt .Code 0 }}#75020c{{ end }}']
 always_enabled = true
 
 [transient_prompt]
-# background = 'transparent'
 background = '#4d4d4f'
 template = "{{ if .Root }}<#ef5350>\uf292_</>{{ else }}<#211700>𝝀_</>{{ end }}"
