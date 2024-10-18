@@ -1,0 +1,14 @@
+"$schema" = 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json'
+version = 2
+
+[[blocks]]
+alignment = 'left'
+type = 'prompt'
+newline = true
+
+[[blocks.segments]]
+type = 'time'
+foreground = "#8e9091"
+
+[blocks.segments.properties]
+time_format = "Mon Jan 2 2006 3:04PM MST -07:00"
