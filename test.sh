@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FONT_URI = "https://github.com/ryanoasis/nerd-fonts/raw/refs/tags/v3.2.1/patched-fonts/3270/Regular/3270NerdFont-Regular.ttf"
-ZSHRC_URI = "https://raw.githubusercontent.com/tariqiitju/termux-init/refs/heads/dev/.zshrc"
+FONT_URI="https://github.com/ryanoasis/nerd-fonts/raw/refs/tags/v3.2.1/patched-fonts/3270/Regular/3270NerdFont-Regular.ttf"
+ZSHRC_URI="https://raw.githubusercontent.com/tariqiitju/termux-init/refs/heads/dev/.zshrc"
 
 get_cpu_platform() {
     uname -m
