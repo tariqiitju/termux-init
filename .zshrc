@@ -1,6 +1,6 @@
 
 #33______________________PATH__________________________33
-PATH=$PATH:$HOME/.local/bin
+# PATH=$PATH:$HOME/.local/bin
 #33____________________________________________________33
 
 
@@ -14,20 +14,20 @@ plugins=(
     # gh
     # git-auto-fetch
     # direnv
-    nvm
-    mvn
-    npm
-    node
+    # nvm
+    # mvn
+    # npm
+    # node
     # aws
-    docker
-    docker-compose
+    # docker
+    # docker-compose
     # kubectl
     # vscode
     python
     pip
     tmux
     ssh
-    spring
+    # spring
     # thefuck
     fast-syntax-highlighting
     zsh-autosuggestions
@@ -77,4 +77,4 @@ bindkey '^[[1;2B' history-substring-search-down
 
 
 # load ohmyposh
-eval "$(oh-my-posh init zsh --config '~/themes/sundari.omp.toml')"
+eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/tariqiitju/termux-init/refs/heads/dev/sundari.omp.toml')"

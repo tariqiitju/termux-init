@@ -1,5 +1,8 @@
 #!/bin/bash
 
+FONT_URI = "https://github.com/ryanoasis/nerd-fonts/raw/refs/tags/v3.2.1/patched-fonts/3270/Regular/3270NerdFont-Regular.ttf"
+ZSHRC_URI = "https://raw.githubusercontent.com/tariqiitju/termux-init/refs/heads/dev/.zshrc"
+
 get_cpu_platform() {
     uname -m
 }
@@ -27,29 +30,28 @@ pkg upgrade
 
 
 # Install required packages
-pkg install -y git wget curl nano openssh tmux zsh file which oh-my-posh
+pkg install -y git wget curl nano openssh tmux zsh file which oh-my-posh python
 
-RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete
 # Add plugins to .zshrc
-
-sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-history-substring-search zsh-autosuggestions)/' ~/.zshrc
 
 # sh -c "$(curl -fsSL n.t00.uk)"
 
 
 # replace with cascadiacove : better support
-curl -L -o ~/.termux/font.ttf "https://raw.githubusercontent.com/romkatv/dotfiles-public/refs/heads/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf"
+curl -L -o ~/.termux/font.ttf $FONT_URI
 
 # eval "$(oh-my-posh init zsh --config )"
 
-echo '\neval "$(oh-my-posh init zsh --config $PREFIX/share/oh-my-posh/themes/hul10.omp.json)"' >> $HOME/.zshrc
-echo "bindkey '^[[1;2A' history-substring-search-up" >> $HOME/.zshrc
-echo "bindkey '^[[1;2B' history-substring-search-down" >> $HOME/.zshrc
+mv ~/.zshrc ~/.zshrc.bk
+curl -L -o ~/.zshrc $ZSHRC_URI
+
 
 termux-reload-settings
 exec zsh -l

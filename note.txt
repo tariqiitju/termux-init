@@ -16,8 +16,5 @@ half-life.omp.json
 eval "$(/home/tariq/.local/bin/oh-my-posh init zsh --config /home/tariq/code/experiment/termux-init/sundari.omp.toml)"
 
 
-second promts --> light background, dark foreground
-
-Mon Jan 2 2024 3:04PM
-
-Mon Jan 2 2006 3:04PM
+"Termux setup continue"
+"Tmux copy paste"
